@@ -1,4 +1,4 @@
-package com.jwt.controller;
+package com.ticketreservation.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jwt.entities.Customer;
-import com.jwt.services.CustomerService;
+import com.ticketreservation.entities.Customer;
+import com.ticketreservation.services.CustomerService;
 
 @RestController
 public class CustomerController {

@@ -1,4 +1,4 @@
-package com.jwt.services;
+package com.ticketreservation.jwt;
 
 import java.util.Date;
 import java.util.HashMap;

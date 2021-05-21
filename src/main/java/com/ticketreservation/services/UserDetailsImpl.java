@@ -1,4 +1,4 @@
-package com.jwt;
+package com.ticketreservation.services;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -7,15 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import com.jwt.entities.Customer;
+import com.ticketreservation.entities.Customer;
 
-public class CustomerDetailsImpl implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
 
 	@Autowired
 	private Customer customer;
 	
 	
-	public CustomerDetailsImpl(Customer customer) {
+	public UserDetailsImpl(Customer customer) {
 		this.customer = customer;
 	}
 	

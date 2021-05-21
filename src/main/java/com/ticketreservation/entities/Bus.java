@@ -1,4 +1,4 @@
-package com.jwt.entities;
+package com.ticketreservation.entities;
 
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;

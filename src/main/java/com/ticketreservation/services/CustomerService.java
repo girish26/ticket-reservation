@@ -1,8 +1,8 @@
-package com.jwt.services;
+package com.ticketreservation.services;
 
 import java.util.List;
 
-import com.jwt.entities.Customer;
+import com.ticketreservation.entities.Customer;
 
 public interface CustomerService {
 

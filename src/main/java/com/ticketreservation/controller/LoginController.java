@@ -1,31 +1,26 @@
-package com.jwt.controller;
-
-import java.util.List;
-import java.util.Optional;
+package com.ticketreservation.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jwt.services.CustomerServiceImpl;
-import com.jwt.services.JwtUtil;
-import com.jwt.services.MyUserDetailsService;
+import com.ticketreservation.services.CustomerServiceImpl;
+import com.ticketreservation.jwt.JwtUtil;
+import com.ticketreservation.services.MyUserDetailsService;
 
 
-import com.jwt.entities.Customer;
-import com.jwt.models.AuthenticationResponse;
+import com.ticketreservation.entities.Customer;
+import com.ticketreservation.response.AuthenticationResponse;
 
 @RestController
-public class Home {
+public class LoginController {
 
 	
 	@Autowired

@@ -1,4 +1,4 @@
-package com.jwt.config;
+package com.ticketreservation.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,9 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.jwt.JwtAuthenticationEntryPoint;
-import com.jwt.JwtRequestFilter;
-import com.jwt.services.MyUserDetailsService;
+import com.ticketreservation.jwt.JwtAuthenticationEntryPoint;
+import com.ticketreservation.jwt.JwtRequestFilter;
+import com.ticketreservation.services.MyUserDetailsService;
 
 @Configuration
 @EnableWebSecurity

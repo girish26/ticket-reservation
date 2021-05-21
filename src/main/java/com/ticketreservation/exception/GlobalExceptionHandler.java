@@ -1,4 +1,4 @@
-package com.jwt;
+package com.ticketreservation.exception;
 
 import java.io.IOException;
 

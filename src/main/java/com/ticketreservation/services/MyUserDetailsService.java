@@ -1,4 +1,4 @@
-package com.jwt.services;
+package com.ticketreservation.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,15 +6,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.jwt.CustomerDetailsImpl;
-import com.jwt.dao.CustomerDao;
-import com.jwt.entities.Customer;
+import com.ticketreservation.repository.CustomerRepository;
+import com.ticketreservation.entities.Customer;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private CustomerDao repo;
+	private CustomerRepository repo;
 	
 	@Override
 	public UserDetails loadUserByUsername(String customerName) throws UsernameNotFoundException {
@@ -26,7 +25,7 @@ public class MyUserDetailsService implements UserDetailsService {
 		if(customer == null)
 			throw new UsernameNotFoundException("Customer 404 i.e not found");
 		
-		return new CustomerDetailsImpl(customer);
+		return new UserDetailsImpl(customer);
 		
 		
 		//correct working below line only
