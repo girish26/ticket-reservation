@@ -10,9 +10,9 @@ public class Bus {
 	private int busNumber;
 	private int totalSeats;
 
-	@ManyToOne // Many buses runs on same route
-	private BusRoutes busRoutes;
-	
-	@OneToMany // one bus has many passengers i.e customers
-	private Customer customer;
+//	@ManyToOne // Many buses runs on same route
+//	private BusRoutes busRoutes;
+//
+//	@OneToMany // one bus has many passengers i.e customers
+//	private Customer customer;
 }
