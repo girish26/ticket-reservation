@@ -19,63 +19,63 @@ import com.ticketreservation.services.CustomerService;
 
 @RestController
 public class CustomerController {
-	
-	@Autowired
-	private CustomerService customerService;	
 
-	@GetMapping("/customers")
-	public ResponseEntity<List<Customer>> getCustomers(){
-		
-		List<Customer> list= customerService.getCustomers();
-		if(list.size()<=0) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
-		return ResponseEntity.of(Optional.of(list));
-	}
-	
-	
-	@GetMapping("/customers/{customerName}")
-	public ResponseEntity<Customer> getCustomer(@PathVariable("customerName") String customerName) {
-		
-		Customer cust = customerService.getCustomer(customerName);
-		if(cust==null) {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-		}
-		return ResponseEntity.of(Optional.of(cust));
-	}
-	
-	//add customer using POST
-	@PostMapping("/customers")
-	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
-			Customer cust = this.customerService.addCustomer(customer);
-			if(cust==null) {
-				return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-			}
-			return ResponseEntity.of(Optional.of(cust));
-	} 
-	
-	//update customer using PUT
-	@PutMapping("/customers")
-	public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
-		
-		Customer cust = this.customerService.updateCustomer(customer);
-		if(cust==null) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
-		return ResponseEntity.of(Optional.of(cust));
-	}
-			
-	//Delete Customer
-	@DeleteMapping("/customers/{customerName}")
-	public ResponseEntity<HttpStatus> deleteCustomer(@PathVariable String customerName){
-		try {
-				this.customerService.deleteCustomer(customerName);
-				return new ResponseEntity<>(HttpStatus.OK);
-			}catch(Exception e) {
-				System.out.println(e);
-				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-	}
+    @Autowired
+    private CustomerService customerService;
 
-	
+    @GetMapping("/customers")
+    public ResponseEntity<List<Customer>> getCustomers() {
+
+        List<Customer> list = customerService.getCustomers();
+        if (list.size() <= 0) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.of(Optional.of(list));
+    }
+
+
+    @GetMapping("/customers/{customerName}")
+    public ResponseEntity<Customer> getCustomer(@PathVariable("customerName") String customerName) {
+
+        Customer cust = customerService.getCustomer(customerName);
+        if (cust == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.of(Optional.of(cust));
+    }
+
+    //add customer using POST
+    @PostMapping("/customers")
+    public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
+        Customer cust = this.customerService.addCustomer(customer);
+        if (cust == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.of(Optional.of(cust));
+    }
+
+    //update customer using PUT
+    @PutMapping("/customers")
+    public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer) {
+
+        Customer cust = this.customerService.updateCustomer(customer);
+        if (cust == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.of(Optional.of(cust));
+    }
+
+    //Delete Customer
+    @DeleteMapping("/customers/{customerName}")
+    public ResponseEntity<HttpStatus> deleteCustomer(@PathVariable String customerName) {
+        try {
+            this.customerService.deleteCustomer(customerName);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            System.out.println(e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
 }

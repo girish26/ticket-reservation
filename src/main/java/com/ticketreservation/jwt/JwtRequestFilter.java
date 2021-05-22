@@ -15,13 +15,13 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.ticketreservation.services.MyUserDetailsService;
+import com.ticketreservation.services.UserServiceImpl;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter{
 
 	@Autowired
-	private MyUserDetailsService userDetailsService;
+	private UserServiceImpl userDetailsService;
 	
 	@Autowired
 	private JwtUtil jwtUtil;
@@ -41,8 +41,7 @@ public class JwtRequestFilter extends OncePerRequestFilter{
 		}
 		
 		if(username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-			UserDetails userDetails = this.userDetailsService.loadUserByUsername(username); 
-			
+			UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 			if(jwtUtil.validateToken(jwt, userDetails)) {
 				
 				UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
@@ -56,8 +55,6 @@ public class JwtRequestFilter extends OncePerRequestFilter{
 		}
 		
 		chain.doFilter(request,response);
-		
-		
 	}
 
 }

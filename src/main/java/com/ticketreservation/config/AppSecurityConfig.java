@@ -18,14 +18,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.ticketreservation.jwt.JwtAuthenticationEntryPoint;
 import com.ticketreservation.jwt.JwtRequestFilter;
-import com.ticketreservation.services.MyUserDetailsService;
+import com.ticketreservation.services.UserServiceImpl;
 
 @Configuration
 @EnableWebSecurity
 public class AppSecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
-	private MyUserDetailsService userDetailsService; 	//object of MyUserDetailsService class
+	private UserServiceImpl userDetailsService; 	//object of MyUserDetailsService class
 	
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;

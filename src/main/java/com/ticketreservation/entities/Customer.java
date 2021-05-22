@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Customer {
 
     @Id
-    private String customerName;//this is unique so used as Id
+    private String userId;//this is unique so used as Id
     private String password;
     private String city;
     private String email;
@@ -22,10 +22,10 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String customerName, String password, String city, String email, String mobileNo,
+    public Customer(String userId, String password, String city, String email, String mobileNo,
                     Boolean isLoggedIn) {
         super();
-        this.customerName = customerName;
+        this.userId = userId;
         this.password = password;
         this.city = city;
         this.email = email;
@@ -36,7 +36,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "customerName=" + customerName + ", password=" + password
+        return "customerName=" + userId + ", password=" + password
                 + ", city=" + city + ", email=" + email + ", mobileno=" + mobileNo + ", isLoggedIn=" + isLoggedIn + "]";
     }
 
