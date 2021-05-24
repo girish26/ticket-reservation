@@ -7,10 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.ticketreservation.services.CustomerServiceImpl;
 import com.ticketreservation.jwt.JwtUtil;
@@ -20,6 +17,7 @@ import com.ticketreservation.services.UserServiceImpl;
 import com.ticketreservation.response.AuthenticationResponse;
 
 @RestController
+@RequestMapping("/api/v1")
 public class LoginController {
 
 
@@ -41,15 +39,6 @@ public class LoginController {
     }
 
 
-    /*
-    @GetMapping("/buses")
-    public ResponseEntity<List<Bus>> getBusess() {
-
-        List<Bus> list=busService.getAllBusses();
-        if(list.size()<=0)
-
-    }
-    */
     @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody LoginRequest authenticationRequest) throws Exception {
 

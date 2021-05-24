@@ -14,4 +14,6 @@ public interface BusService {
     public Bus updateBus(Bus bus);
 
     public void deleteBus(Long busId);
+
+    public List<Integer> getAvailableSeats(Long busId);
 }

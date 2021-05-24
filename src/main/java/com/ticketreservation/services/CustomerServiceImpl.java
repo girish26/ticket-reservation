@@ -3,6 +3,7 @@ package com.ticketreservation.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.ticketreservation.repository.CustomerRepository;
 import com.ticketreservation.entities.Customer;
@@ -12,6 +13,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerRepository customerDao;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	public CustomerServiceImpl() {
 
@@ -31,7 +35,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer addCustomer(Customer cust) {
-		
+
+		//need to encypt customer password
+		cust.setPassword(passwordEncoder.encode(cust.getPassword()));
 		customerDao.save(cust);
 		return cust;
 	}

@@ -29,7 +29,6 @@ public class Bus {
 	private Date journeyStartTime;
 
 	@ManyToOne
-	@JsonIgnore
 	private Route route;
 
 	@OneToMany(mappedBy = "bus")

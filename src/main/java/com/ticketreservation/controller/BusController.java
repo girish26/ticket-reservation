@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/v1")
 public class BusController {
 
     @Autowired
@@ -35,6 +36,17 @@ public class BusController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         return ResponseEntity.of(Optional.of(bus));
+    }
+
+    // to get available sets in Bus
+    @GetMapping("/buses/{busId}/seatsAvailable")
+    public ResponseEntity<List<Integer>> getAvailableSeats(@PathVariable String busId) {
+
+        List<Integer> availbleSeats = busService.getAvailableSeats(Long.parseLong(busId));
+        if (availbleSeats == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.of(Optional.of(availbleSeats));
     }
 
     @PostMapping("/buses")

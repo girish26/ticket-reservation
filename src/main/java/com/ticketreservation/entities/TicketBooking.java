@@ -24,12 +24,10 @@ public class TicketBooking {
     private Date dateoperation = new Date();
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "user_id",nullable = false)
     private Customer customer;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "bus_id",nullable = false)
     private Bus bus;
 

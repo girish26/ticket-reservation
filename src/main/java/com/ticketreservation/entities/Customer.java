@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -19,8 +20,13 @@ public class Customer {
     private String customerName;
     private String password;
     private String city;
+
+   // @Column(unique=true, nullable=false)
     private String email;
+
+  //  @Column(unique=true, nullable=false)
     private String mobileNo;
+
     private Boolean isLoggedIn;
 
     @OneToMany(mappedBy = "customer")
